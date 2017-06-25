@@ -1,3 +1,35 @@
+if(typeof(Number.prototype.toRad)===undefined){
+	Number.prototype.toRad = function(){
+		return this * Math.PI /180;
+	};
+}
+
+//////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+
+var Vector2 = function(){
+	this.x = x;
+	this.y = y;
+};
+
+Vector2.prototype.set = function(x,y){
+	this.x = x;
+	thix.y = y;
+};
+
+///////////////////////////////////////////////
+//////////////////////////////////////////////
+
+var ProductionRule = function(predecessor,sucessor){
+	this.predecessor = predecessor;
+	this.sucessor = sucessor;
+};
+
+
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+
 var StringProdSystem = function(axiom,desiredIter,nbrRules){
 	this.TAG = 'StringProdSystem';
 	this.axiom = axiom;
