@@ -30,5 +30,19 @@ StringProdSystem.prototype.convertAll = function(str,iter){
 	if(this.defineRules === 1){
 		var tt = this.test1(str);
 		iteration++;
+		if(iteration===this.desiredIter){
+			return tt;
+		}else{
+			return this.convertAll(tt,iteration);
+		}
+
+	}else{
+		var ttt=this.test(str);
+		iteration++;
+		if(iteration===this.desiredIter){
+			return ttt;
+		}else{
+			return this.convertAll(ttt,iteration);
+		}
 	}
 };
