@@ -1,21 +1,21 @@
-if(typeof(Number.prototype.toRad)===undefined){
+
 	Number.prototype.toRad = function(){
-		return this * Math.PI /180;
+		return this * Math.PI / 180;
 	};
-}
+
 
 //////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
 
-var Vector2 = function(){
+var Vector2 = function(x,y){
 	this.x = x;
 	this.y = y;
 };
 
 Vector2.prototype.set = function(x,y){
 	this.x = x;
-	thix.y = y;
+	this.y = y;
 };
 
 ///////////////////////////////////////////////
@@ -33,19 +33,18 @@ var ProductionRule = function(predecessor,sucessor){
 var StringProdSystem = function(axiom,desiredIter,nbrRules){
 	this.TAG = 'StringProdSystem';
 	this.axiom = axiom;
-	this.prodRules = [nbrRules];
+	this.prodRules = [];
 	this.desiredIter = desiredIter;
 	this.defineRules = 0;
+	console.log(this.desiredIter);
 
 };
 
 StringProdSystem.prototype.addRules = function(predecessor,sucessor){
-	if(this.defineRules >= this.prodRules.length){
-		console.log(this.TAG, 'la liste des regle est déjà pleine');
-		return;
-	}
-	this.prodRules[this.defineRules]= new ProductionRule(predecessor,sucessor);
-	this.defineRules++;
+
+		this.prodRules.push(new ProductionRule(predecessor,sucessor));
+		this.defineRules++;
+
 };
 
 
@@ -54,8 +53,10 @@ StringProdSystem.prototype.convertAll = function(str,iter){
 	if(arguments.length === 0)
 		return this.convertAll(this.axiom,0);
 
-	if(iter>=this.desiredIter)
+	if(iter>=this.desiredIter){
+		console.log(true);
 		return str;
+	}
 
 	var iteration = iter;
 
@@ -116,7 +117,7 @@ StringProdSystem.prototype.test1 = function(depart){
 };
 
 StringProdSystem.prototype.recursivTest = function(axiom, desIt){
-	if(desIt == 0){
+	if(desIt === 0){
 		return axiom;
 	}else{
 		return (this.prodRules.length === 1) ? this.recursivTest(this.test1(axiom), desIt-1):this.recursivTest(this.test(axiom),desIt-1);
