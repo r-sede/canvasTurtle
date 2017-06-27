@@ -1,9 +1,11 @@
 
-	Number.prototype.toRad = function(){
-		return this * Math.PI / 180;
-	};
+Number.prototype.toRad = function(){
+	return this * Math.PI / 180;
+};
 
-
+// function toRad(Angdeg){
+// 	return Angdeg * Math.PI / 180;
+// }
 //////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
@@ -36,7 +38,7 @@ var StringProdSystem = function(axiom,desiredIter,nbrRules){
 	this.prodRules = [];
 	this.desiredIter = desiredIter;
 	this.defineRules = 0;
-	console.log(this.desiredIter);
+	// console.log(this.desiredIter);
 
 };
 

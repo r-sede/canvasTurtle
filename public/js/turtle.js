@@ -11,14 +11,15 @@ var Turtle = function(startX,startY,startAngle,unitlength,angleIncr){
 };
 
 Turtle.prototype.drawAll = function(renderer) {
-		renderer.beginPath();
 	for(var i =0;i <this.segment.length;i++){
 		var cur = this.segment[i];
-		console.log(cur);
+		// console.log(cur);
+
+		renderer.beginPath();
 		renderer.moveTo(cur[0],cur[1]);
 		renderer.lineTo(cur[2],cur[3]);
+		renderer.stroke();
 	}
-		renderer.closePath();
 };
 
 Turtle.prototype.setPosition = function(x,y){
@@ -38,16 +39,16 @@ Turtle.prototype.reliLastPos = function() {
 Turtle.prototype.f = function() {
 	var xx;
 	var yy;
-	xx= this.position.x +(this.unitlength * Math.cos( this.angle.toRad() ) ); 
-	yy= this.position.y +(this.unitlength * Math.cos( this.angle.toRad() ) );
+	xx= this.position.x + this.unitlength * Math.cos( this.angle.toRad() ); 
+	yy= this.position.y + this.unitlength * Math.sin( this.angle.toRad() );
 	this.setPosition(xx,yy);
 };
 
 Turtle.prototype.F = function() {
 	var xx;
 	var yy;
-	xx= this.position.x +(this.unitlength * Math.cos( this.angle.toRad() ) ); 
-	yy= this.position.y +(this.unitlength * Math.cos( this.angle.toRad() ) );
+	xx= this.position.x + this.unitlength * Math.cos( this.angle.toRad()  ); 
+	yy= this.position.y + this.unitlength * Math.sin( this.angle.toRad()  );
 	this.setPosition(xx,yy);
 	this.reliLastPos();
 };
