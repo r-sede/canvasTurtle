@@ -20,6 +20,7 @@ Turtle.prototype.drawAll = function(renderer) {
 		renderer.lineTo(cur[2],cur[3]);
 		renderer.stroke();
 	}
+
 };
 
 Turtle.prototype.setPosition = function(x,y){
@@ -76,12 +77,10 @@ Turtle.prototype.pop = function() {
 };
 
 
-//TODO change this to a function array <3 javascript !!
+//Tfunction array ?? 
 Turtle.prototype.parseString= function(str){
-	var long = str.length;
-	// console.log(str);
-	//debugNBrSegment ...
-	for(var i = 0; i< long; i++){
+
+	for(var i = 0; i< str.length; i++){
 		switch(str.charAt(i)) {
 			case 'F':
 				this.F();

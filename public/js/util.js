@@ -32,55 +32,51 @@ var ProductionRule = function(predecessor,sucessor){
 /////////////////////////////////////////////
 /////////////////////////////////////////////
 
-var StringProdSystem = function(axiom,desiredIter,nbrRules){
+var StringProdSystem = function(axiom,desiredIter){
 	this.TAG = 'StringProdSystem';
 	this.axiom = axiom;
 	this.prodRules = [];
 	this.desiredIter = desiredIter;
-	this.defineRules = 0;
 	// console.log(this.desiredIter);
 
 };
 
 StringProdSystem.prototype.addRules = function(predecessor,sucessor){
-
-		this.prodRules.push(new ProductionRule(predecessor,sucessor));
-		this.defineRules++;
-
+	this.prodRules.push(new ProductionRule(predecessor,sucessor));
 };
 
 
 
-StringProdSystem.prototype.convertAll = function(str,iter){
-	if(arguments.length === 0)
-		return this.convertAll(this.axiom,0);
+// StringProdSystem.prototype.convertAll = function(str,iter){
+// 	if(arguments.length === 0){
+// 		return this.convertAll(this.axiom,0);
+// 	}
 
-	if(iter>=this.desiredIter){
-		console.log(true);
-		return str;
-	}
+// 	if(iter>=this.desiredIter){
+// 		return str;
+// 	}
 
-	var iteration = iter;
+// 	var iteration = iter;
 
-	if(this.defineRules === 1){
-		var tt = this.test1(str);
-		iteration++;
-		if(iteration===this.desiredIter)
-			return tt;
-		else
-			return this.convertAll(tt,iteration);
+// 	if(this.prodRules.length === 1){
+// 		var tt = this.test1(str);
+// 		iteration++;
+// 		if(iteration===this.desiredIter)
+// 			return tt;
+// 		else
+// 			return this.convertAll(tt,iteration);
 
 
-	}else{
-		var ttt=this.test(str);
-		iteration++;
-		if(iteration===this.desiredIter)
-			return ttt;
-		else
-			return this.convertAll(ttt,iteration);
-	}
+// 	}else{
+// 		var ttt=this.test(str);
+// 		iteration++;
+// 		if(iteration===this.desiredIter)
+// 			return ttt;
+// 		else
+// 			return this.convertAll(ttt,iteration);
+// 	}
 
-};
+// };
 
 
 StringProdSystem.prototype.test = function(depart){

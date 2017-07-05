@@ -5,8 +5,24 @@
     <title>planteCanvas</title>
   </head>
   <body>
-<canvas id="playground" width="1024" height="768"></canvas>
-
+<form action="">
+	<label for="turtStr">Axiom</label>
+	<input type="text" id="turtStr" />
+	<label for="desiredIter">desiredIter</label>
+	<input type="text" id="desiredIter" value="2"/>
+	<input type="button" id="drawButt" value="draw"/>
+	<input type="button" id="clearButt" value="clear"/>
+</form>
+<div id="displayRules"></div>
+<form action="">
+	<label for="predecessor">predecessor</label>
+	<input type="text" id="predecessor" value="F" />
+	<label for="sucessor">sucessor</label>
+	<input type="text" id="sucessor" value="FF-[-F+F+F]+[+F-F-F]"/>
+	<input type="button" id="addRuleButt" value="addRule"/>
+	<input type="button" id="resetRules" value="resetRules"/>
+</form>
+	<canvas id="playground" width="1024" height="2000"></canvas>
 
 
   <script type="text/javascript" src="/js/util.js"></script>
